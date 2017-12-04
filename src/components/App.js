@@ -4,18 +4,11 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
 
-import Header from './Header';
 import Home from './Home';
-import MovieInfo from './MovieInfo';
-
+const Header = () => <h1>Header</h1>
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchMovies();
-  }
 
   render() {
     return (
@@ -25,7 +18,6 @@ class App extends Component {
             <Header />
                 <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route path="/movie/:id" component={MovieInfo} />
                 </Switch>
             {/* <Footer /> */}
           </div>
@@ -35,4 +27,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+export default App;

@@ -3,24 +3,22 @@ import { Link } from 'react-router-dom';
 
 export default class SearchForm extends Component {
   state = {
-    searchText: ''
+    term: ''
   };
 
   onSearchChange(e) {
-    const searchText = e.target.value;
+    const term = e.target.value;
 
-    this.setState({ searchText });
+    this.setState({ term });
   }
 
   onSubmit = (e) => {
     e.preventDefault();
-    if (!this.state.searchText) {
-      this.setState({ error: 'Please provide search text' });
+    if (!this.state.term) {
+      this.setState({ error: 'Please provide a term' });
     } else {
       this.setState({ error: ''});
-      this.props.onSubmit({
-        searchText: this.state.searchText
-      });
+      this.props.onSubmit(this.state.term);
     }
   }
 
@@ -28,13 +26,17 @@ export default class SearchForm extends Component {
     return (
       <div className="search-form">
         {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
+        <form className='input-group' onSubmit={this.onSubmit.bind(this)}>
           <input
             type="text"
-            placeholder='Search'
-            value={this.state.searchText}
+            className='form-control'
+            placeholder='Get a five-day weather forecast'
+            value={this.state.term}
             onChange={this.onSearchChange.bind(this)}
           />
+          <span className="input-group-btn">
+            <button type='submit' className="btn btn-secondary">Submit</button>
+          </span>
         </form>
       </div>
     );
