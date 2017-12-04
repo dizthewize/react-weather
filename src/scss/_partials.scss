@@ -1,0 +1,155 @@
+#nav {
+  min-height: 60px;
+  background: gray;
+  color: $offwhite;
+  overflow: auto;
+  padding: 15px;
+
+  .logo {
+    display: inline-block;
+    float: left;
+    a {
+      color: blue;
+      text-decoration: none;
+    }
+    h2 {
+      font-size: 2.2em;
+      text-transform: uppercase;
+    }
+  }
+
+  .navbar-items {
+    display: inline-block;
+    float: right;
+    li {
+      display: inline-block;
+      padding: 0 10px;
+      margin-top: 9px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+      a {
+        color: blue;
+        float: left;
+        font-size: 1.5em;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &.active,
+        &:hover {
+          transition: all .4s ease-in;
+          color: $offwhite;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  padding: .9em 0;
+  text-align: center;
+  .media-bar {
+    ul {
+
+      li {
+        display: inline-block;
+        padding: 10px;
+
+        a {
+          .ion {
+            font-size: 2.6em;
+          }
+        }
+      }
+    }
+  }
+  .name-link {
+    font-size: 1.2em;
+  }
+
+  a {
+    text-decoration: none;
+    color: blue;
+
+    &:hover {
+      transition: all .3s ease-in;
+      color: $offwhite;
+    }
+  }
+}
+
+#drop-menu {
+  background: $offwhite;
+  height: 190px;
+  width: 100%;
+  display: none;
+  position: absolute;
+  top: -190px;
+  z-index: 3;
+  opacity: 0.9;
+
+  a {
+    position: relative;
+    color: blue;
+    text-align: center;
+    // border-bottom: 1px solid #111;
+    display: block;
+    padding: 7px 0;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &.active,
+    &:hover {
+      color: $offwhite;
+    }
+
+    &:first-of-type {
+      margin-top: 15px;
+    }
+  }
+
+}
+
+#drop-menu.visible {
+  top: 0px;
+  transition: all 0.5s linear;
+}
+
+#menu-btn {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 18px;
+  position: absolute;
+  top: 190px;
+  right: 0px;
+  cursor: pointer;
+  margin: 29px 20px 20px;
+  z-index: 3;
+  transition: all .5s linear;
+
+  span {
+    display: block;
+    height: 2px;
+    background: #111;
+    margin-bottom: 4px;
+
+    &:first-of-type {
+      height: 3px;
+    }
+
+    &:nth-child(2) {
+      width: 75%
+    }
+
+    &:nth-child(3) {
+      width: 50%
+    }
+  }
+}
+
+.view-padding {
+  padding: 1.5em 0;
+}
